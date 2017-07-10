@@ -100,7 +100,7 @@ module.exports = (body) => {
         `ln -s /home/qkong/oschina/${repoName}/node_modules ${releasePath}/${repoName}/node_modules`,
         `cd ${releasePath}/${repoName}/`,
         `pm2 delete ${repoName}`,
-        `pm2 start bin/www.js --name "${repoName}"`
+        `pm2 start bin/www --name "${repoName}"`
       ];
       break;
   }
