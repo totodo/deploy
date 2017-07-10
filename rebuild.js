@@ -6,7 +6,7 @@ const releaseRoot    = '/home/qkong/release';
 const wwwPath        = '/root/www';
 const projects = ['WisdomStudy', 'web-admin'];
 
-const parse = (param) => {
+const parse = (params) => {
   const result = {
     ref: param.ref,
     repoName: param.repository.name,
@@ -93,11 +93,11 @@ module.exports = (body) => {
       break;
     case 'WisdomStudy':
       cmd = [
-        `cd /root/github/${repoName}`,
+        `cd /home/qkong/oschina/${repoName}`,
         `git pull origin ${branchName}`,
         'cnpm install',
         `rsync -av --exclude node_modules ../${repoName} ${releasePath}`,
-        `ln -s /root/github/${repoName}/node_modules ${releasePath}/${repoName}/node_modules`,
+        `ln -s /home/qkong/oschina/${repoName}/node_modules ${releasePath}/${repoName}/node_modules`,
         `cd ${releasePath}/${repoName}/`,
         `pm2 delete ${repoName}`,
         `pm2 start bin/www.js --name "${repoName}"`
