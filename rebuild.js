@@ -6,7 +6,7 @@ const releaseRoot    = '/home/qkong/release';
 const wwwPath        = '/root/www';
 const projects = ['WisdomStudy', 'web-admin'];
 
-const parse = (params) => {
+const parse = (param) => {
   const result = {
     ref: param.ref,
     repoName: param.repository.name,
