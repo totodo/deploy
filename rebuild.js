@@ -2,9 +2,9 @@ const moment         = require("moment");
 const exec           = require('child_process').exec;
 
 
-const releaseRoot    = '/root/release';
+const releaseRoot    = '/home/qkong/release';
 const wwwPath        = '/root/www';
-const projects = ['api-server', 'web-admin'];
+const projects = ['WisdomStudy', 'web-admin'];
 
 const parse = (params) => {
   const result = {
@@ -23,7 +23,7 @@ const parse = (params) => {
 };
 
 
-const socket = require('socket.io-client')('http://micro-service.demo.tsq.me');
+const socket = require('socket.io-client')('http://101.200.167.37:6679');
 socket.on('connect', function(){
   console.log('socket connected');
 });
@@ -91,7 +91,7 @@ module.exports = (body) => {
         `ln -s ${releasePath} ${wwwPath}/${repoName}/dist`
       ];
       break;
-    case 'api-server':
+    case 'WisdomStudy':
       cmd = [
         `cd /root/github/${repoName}`,
         `git pull origin ${branchName}`,
